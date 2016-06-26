@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>监控界面</title>
+  <title>仿真任务选择</title>
   <link rel="stylesheet" href="res/css/bootstrap.css">
   <script src="res/script/time.js"></script>
   <style type="text/css">
@@ -106,43 +106,38 @@
     <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th  colspan=2 style="padding-top:0px;padding-bottom:0px;" class="no-border">  
+            <th  colspan=3 style="padding-top:0px;padding-bottom:0px;" class="no-border">  
               <div class="tablename">仿真任务选择</div>
             </th>
+          </tr>
+          <tr>
+            <th>舰载机出航</th>
+            <th>作战实施</th>
+            <th>防空反导</th>
           </tr> 
         </thead>
         <tbody>
           <tr>
             <td>
-              <form role="form" name="frm1" class="form-horizontal">
-                <div class="form-group">
-                  <label for="disabledSelect"  class="col-sm-2 control-label">选择仿真任务</label>
-                  <div class="col-sm-6">
-                    <select name="mission" class="form-control">
-                      <option value="1">舰载机出航</option>
-                      <option value="2">作战实施</option>
-                      <option value="3">防空反导</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+              <p>
+                <button type="button" class="btn btn-success ">自动</button>
+                <button type="button" class="btn btn-danger ">手动</button>
+              </p>
             </td>
-          </tr>
-          <tr>
             <td>
-              <form role="form" name="frm2" class="form-horizontal">
-                <div class="form-group">
-                  <label for="disabledSelect"  class="col-sm-2 control-label">选择仿真类型</label>
-                  <div class="col-sm-6">
-                    <select name="missionType" class="form-control">
-                      <option value="1">自动</option>
-                      <option value="2">手动</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
+              <p>
+                <button type="button" class="btn btn-success ">自动</button>
+                <button type="button" class="btn btn-danger ">手动</button>
+              </p>
             </td>
+            <td>
+              <p>
+                <button type="button" class="btn btn-success ">自动</button>
+                <button type="button" class="btn btn-danger ">手动</button>
+              </p>
+            </td> 
           </tr>
+          
         </tbody>
       </table>
       <input type="button" class="btn btn-primary" onclick="setSubmit(this)" value="开始" style="width:80px;margin-left:40%"/>
