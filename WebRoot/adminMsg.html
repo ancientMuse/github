@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>监控界面</title>
+  <link rel="stylesheet" href="res/css/bootstrap.css">
+  <script src="res/script/time.js"></script>
+  <style type="text/css">
+    body,html{
+      margin: 0;
+      padding: 0;   
+    }
+
+    body{
+    background-image: url(res/img/bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    }
+    
+    .logout:hover {
+      color: red;
+      cursor: pointer
+    }
+
+    .wrap{
+      min-height:500px;
+      background-color: rgba(255,255,255,1);
+      width: 960px;
+      margin: 100px auto 50px; 
+      border-radius: 7px;
+      overflow: auto;
+      padding: 50px 100px 20px;
+    }
+    
+    .no-border {
+      border: 1px solid transparent !important;
+    }
+     
+    div.tablename{
+      background-color:#0088cc; 
+      background-image: linear-gradient(to bottom, #ddd 1%,#22aadd 3%, #0088cc 12%);
+      background-image: webkit-linear-gradient(to bottom, #ddd 1%,#22aadd 3% #0088cc 12%);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+      border-top-left-radius:7px;
+      border-top-right-radius:7px;
+      margin-left:-9px;
+      margin-right:-9px;
+      height:40px;
+      line-height:40px;
+      padding-left:9px;
+      color:#fff;
+      font-size: 16px;
+    }
+
+    .active{
+      font-size: 16px;
+    }
+
+    nav{
+      font-weight: bold;      
+    }
+  </style>
+</head>
+<body>       
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Main.html">
+        <span class="glyphicon glyphicon-user"></span>
+        作战信息交换仿真模拟系统
+      </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-list"></span>
+            信息总览 
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="Main.html">任务关联平台</a></li>
+            <li class="divider"></li>
+            <li><a href="showMission.html">当前已有任务</a></li>
+            <li class="divider"></li>
+            <li><a href="showProtocol.html">平台关联协议</a></li>
+            <li class="divider"></li>
+            <li><a href="adminPT.html">平台管理</a></li>
+          </ul>
+        </li>
+        <li><a href="adminMission.html"><span class="glyphicon glyphicon-calendar"></span>任务管理</a></li>
+        <li><a href="adminprotocol.html"><span class="glyphicon glyphicon-file"></span>协议管理</a></li>
+        <li class="active"><a href="adminMsg.html"><span class="glyphicon glyphicon-comment"></span>消息管理</a></li>
+        <li><a href="Startfangzheng.html"><span class="glyphicon glyphicon-wrench"></span>仿真控制</a></li>         
+      </ul>
+      <button type="button" class="btn btn-default navbar-btn logout navbar-right" style="margin-right:15px;">
+        退出
+      </button>      
+      <p class="navbar-text navbar-right" id="nowtime" style="margin-right:15px;">时间</p>
+      <p class="navbar-text navbar-right" id="currentMission" style="margin-right:15px;"></p>
+    </div>     
+  </nav> 
+  <div class="wrap">     
+    <!--内容区域-->
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+        <th  colspan=4 style="padding-top:0px;padding-bottom:0px;" class="no-border">  
+      <div class="tablename">指令消息列表</div>
+   </th>
+        </tr>
+          <tr>
+            <th>指令名称</th>
+            <th>指令编号</th>
+            <th>指令含义</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="bodytable">
+          
+        </tbody>
+      </table>
+    
+  </div> 
+
+  <script src="res/script/jquery.js"></script>
+  <script src="res/script/bootstrap.js"></script>
+  <script src="res/script/logout.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>系统登录</title>
+
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="this is my page">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="res/script/jquery-1.9.1.js"></script>
+<script src="res/script/login.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style type="text/css">
+html,body {
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+body{
+  background: url(res/img/indexbg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  position: relative;
+}
+
+.loginfrom {
+  background-color: rgba(255,255,255,0.8);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	box-shadow: 0px 0px 5px 1px #888888;
+	height: 400px;
+	width: 550px;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  margin-top: -250px;
+  margin-left: -275px;
+}
+
+
+
+.container {
+	height: 100%;
+	width: 100%;
+}
+
+h1{
+  text-align: center;
+  margin: 60px 0 30px;
+}
+
+.line{
+  margin: 0 auto;  
+	width: 75%;
+	height: 50px;
+  line-height: 50px;
+}
+
+.inputUser {
+	margin: 0 auto;
+	width: 100%;
+	height: 44px;
+	text-align: center;
+	outline: none;
+}
+.inputUser .input{
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+    font-size:22px;
+    border-radius:10px;
+    border: 1px solid #a0a0a0; 
+    height:40px;
+    width:90%;
+    text-align: center;
+    transition: border linear .2s,box-shadow linear .2s;
+}
+.inputUser .input:focus{
+      border: 2px solid #428bca;
+      outline: none;
+}
+.inputUser select{
+     box-shadow: 0px 0px 1px 1px #a0a0a0;
+     font-size:15px;
+     border-radius:10px;
+     border: 1px solid #a0a0a0; 
+     height:80%;
+     width:90%;
+     text-align: center;
+     outline: none;
+}
+.inputUser select option{
+  text-align: left;      
+}
+.inputUser select:focus{
+      border: 2px solid #428bca; 
+      outline: none;
+      cursor:pointer
+}
+.buttonleft{
+  float: left;
+	width:50%;
+	height: 100%;
+	text-align: center;
+	outline: none;
+}
+.buttonleft button{
+  box-shadow: 0px 0px 1px 1px #a0a0a0;
+  font-size:15px;
+  border-radius:10px;
+  border: 1px solid #a0a0a0; 
+  height:60%;
+  width:70%;
+  text-align: center;
+  outline: none;
+  font-weight:bold;
+  background: #eee;
+}
+.buttonright{
+  float: right;
+	width: 50%;
+	height: 100%;
+	text-align: center;
+	outline: none;
+}
+.buttonright button{
+  box-shadow: 0px 0px 1px 1px #a0a0a0;
+  font-size:15px;
+  border-radius:10px;
+  border: 1px solid #a0a0a0; 
+  height:60%;
+  width:70%;
+  text-align: center;
+  outline: none;
+  font-weight:bold;
+  background: #eee;
+}
+.buttonleft button:hover{      
+  box-shadow: 0px 0px 1px 1px #a0a0a0;
+  font-size:15px;
+  border-radius:10px;
+  height:60%;
+  width:70%;
+  text-align: center;
+  outline: none;
+  background:#428bca;
+  color:#fff;
+  cursor:pointer;
+}
+.buttonright button:hover{
+  box-shadow: 0px 0px 1px 1px #a0a0a0;
+  font-size:15px;
+  border-radius:10px;
+  height:60%;
+  width:70%;
+  text-align: center;
+  outline: none;
+  background:#428BCA;
+  color:#fff;
+  cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="loginfrom">
+    <div class="container">
+      <h1>数据流交互系统</h1>
+      <div class="line">
+        <div class="inputUser">
+          <input type="text" placeholder="用户名" class="input" id="username">
+        </div>
+      </div>
+      <div class="line">
+        <div class="inputUser">
+          <input type="password" placeholder="密码" class="input" id="psw">
+        </div>
+      </div>
+      <div class="line">
+        <div class="inputUser">
+          <select id="sector" class="input2" style=" outline: none; cursor:pointer">
+            <option selected="selected">请选择登录身份</option>
+            <option value="000">监控系统</option>
+            <option value="001">编队作战指挥系统</option>
+            <option value="002">本舰作战指挥系统</option>
+            <option value="003">航空兵作战指挥系统</option>
+            <option value="004">航空管制系统</option>
+            <option value="005">综合导航系统</option>
+            <option value="006">综合气象水文系统</option>
+            <option value="007">航保指挥管理系统</option>
+            <option value="008">航保起飞与着舰引导系统</option>
+          </select>
+        </div>
+      </div>
+      <div class="line">
+        <div class="buttonleft">
+          <button id="submit">登录</button>
+        </div>
+        <div class="buttonright">
+          <button id="reset">重置</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

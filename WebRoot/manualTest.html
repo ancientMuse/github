@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>主要标签</title>
+  <link rel="stylesheet" href="res/css/bootstrap.css">
+  <script src="res/script/time.js"></script>
+  <style type="text/css">
+    body,html{
+      margin: 0;
+      padding: 0;   
+    }
+
+    body{
+    background-image: url(res/img/bg3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    }
+    
+    .logout:hover {
+      color: red;
+      cursor: pointer
+    }
+
+    .wrap{
+      min-height:500px;
+      background-color: rgba(255,255,255,1);
+      width: 960px;
+      margin: 100px auto 50px; 
+      border-radius: 7px;
+      overflow: auto;
+      padding: 50px 100px 20px;
+    }
+    
+    .no-border {
+      border: 1px solid transparent !important;
+    }
+     
+    div.tablename{
+      background-color:#0088cc; 
+      background-image: linear-gradient(to bottom, #ddd 1%,#22aadd 3%, #0088cc 12%);
+      background-image: webkit-linear-gradient(to bottom, #ddd 1%,#22aadd 3% #0088cc 12%);
+      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+      border-top-left-radius:7px;
+      border-top-right-radius:7px;
+      margin-left:-9px;
+      margin-right:-9px;
+      height:40px;
+      line-height:40px;
+      padding-left:9px;
+      color:#fff;
+      font-size: 16px;
+    }
+
+    .active{
+      font-size: 16px;
+    }
+
+    nav{
+      font-weight: bold;      
+    }
+
+    /*本页面特有的类*/
+
+
+      .showarea {
+         width: 380px;
+         height: 505px;
+         float: left;
+      }
+
+      .divItem,.divItemleft {
+          width: 198px;
+         height: 86px;
+         margin: 0 auto;
+         margin-bottom: 50px;         
+         text-align: center;
+         line-height: 86px;
+         font-size: 18px;
+         background: #eee;
+         border-radius: 1px;
+         box-shadow: 0px 0px 1px 1px #888888;
+      }
+
+      .divleftcontainer {
+         width: 200px;
+         height: 100%;
+         float: left;
+      }
+
+      .divrightcontainer {
+         width: 200px;
+         height: 100%;
+         float: left;
+      }
+      .divMSGLine{
+        width: 800px;
+        margin: 8px auto;
+        margin-bottom:15px;
+      }
+      .span{
+         background-color:#0088cc; 
+         background-image: linear-gradient(to bottom, #ddd 1%,#22aadd 3%, #0088cc 12%);
+         background-image: webkit-linear-gradient(to bottom, #ddd 1%,#22aadd 3% #0088cc 12%);
+         box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+         margin:0px auto;
+         min-width:100px;
+         height:40px;
+         line-height: 40px;
+         color:#fff;
+         text-align: center;
+         float:center;
+      }
+      .divcontainer {
+          width: 800px;
+          height: 505px;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 30px;
+          margin-bottom: 20px;
+          padding:8px;
+          box-shadow: 0px 0px 5px 1px #888888;
+      }
+      
+      .SectorMSG {        
+        background: #EEE;        
+        overflow: auto;
+        border-radius: 1px;          
+        width: 800px;
+        height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 8px;
+        padding:8px;
+        box-shadow: 0px 0px 5px 1px #888888;
+      }
+      .linemsg {
+        float: left;
+        width: 760px;
+        height: 80px;
+        background: #f8f8f8;
+        box-shadow: 0px 0px 5px 3px #a0a0a0;
+        border: 1px solid #f8f8f8;
+        margin-top: 10px;
+        border-radius: 1px;
+      }
+      .xuhao {
+        width: 38px;
+        float: left;
+        height: 100%;
+        padding-top: 24px;
+        padding-left: 6px;
+      }
+
+      .xuhao .xh {
+        border-color: transparent;
+        background: #6495ED;
+        color: #fff;
+        width: 28px;
+        height: 28px;
+        font-size: 11px;
+        line-height: 28px;
+        text-align: center;
+        border-radius: 50%;;
+        -moz-border-radius: 50%;;
+      }
+      .time {
+        width: 80px;
+        float: left;
+        height: 100%;
+        padding-top: 20px;
+        text-align: center;
+        font-size: 10px;
+      }
+      .fromsector {
+        width: 170px;
+        float: left;
+        height: 0%;
+      }
+      .listsector {
+        word-break: break-all;
+        color: #000;
+        margin-top: 10px;
+        width: 160px;
+        height: 60px;
+        line-height: 60px;
+        box-shadow: 0px 0px 5px 3px #a0a0a0;
+        float: left;
+        margin-bottom: 0px;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background: #4f8fcd;
+        border: 1px solid #4f8fcd;
+        border-radius: 4px;
+        float: left;
+        color: #fff;
+      }
+      .SJL {
+        width: 180px;
+        float: left;
+        height: 100%;
+        background: #f8f8f8;
+      }
+      .I {
+        margin-top: 9px;
+        margin-bottom: 3px;
+        width: 180px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        color: red;
+        font-weight: bold;
+      }
+      .allprocess {
+        float: left;
+        margin-top: 8px;
+        width: 145px;
+        background: #000;
+        height: 15px;
+      }
+
+      .nowprocess {
+        width: 0%;
+        height: 100%;
+        background-color: #55b055;
+      }
+      .triangle {
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-left: 35px solid #000;
+        border-bottom: 15px solid transparent;
+        float: left;
+        border-radius: 3px;
+        
+      }
+      .toSector {
+        width: 170px;
+        float: left;
+        height: 0%;
+      }
+      .listsector {
+        word-break: break-all;
+        color: #000;
+        margin-top: 10px;
+        width: 160px;
+        height: 60px;
+        line-height: 60px;
+        box-shadow: 0px 0px 5px 3px #a0a0a0;
+        float: left;
+        margin-bottom: 0px;
+        font-size: 14px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background: #4f8fcd;
+        border: 1px solid #4f8fcd;
+        border-radius: 4px;
+        float: left;
+        color: #fff;
+      }
+      .showData {
+        width: 110px;
+        float: left;
+        height: 100%;
+        text-align: center;
+        line-height: 80px;
+      }
+      .showbutton {
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        display: block;
+        padding: 1px 3px;
+        font-size: 14px;
+        margin-left: 0px;
+        font-weight: 400;
+        line-height: 1.428571429;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        margin-top:20px;
+        margin-bottom:20px;
+        height:30px;
+      }
+
+      .showbutton:hover {
+        background-color: #35a035;
+        color: #fff;
+      }
+
+      .black_overlay {
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1001;
+        -moz-opacity: 0.1;
+        opacity: .10;
+        filter: alpha(opacity =   10);
+      }
+
+      .white_content {
+        border-radius: 8px;
+        display: none;
+        position: absolute;
+        width: 620px;
+        height: 0px;
+        padding: 0px;
+        border: 5px solid white;
+        background: #fff;
+        z-index: 1002;
+        text-align: center;
+        box-shadow: 0px 0px 5px 1px #ddd;
+        left: 50%;
+        margin-left: -310px;
+      }
+
+      .white_content .title {
+        width: 100%;
+        background-color: #4B90F9;
+        text-align: left;
+        font-weight: bold;
+        box-shadow: 0px 0px 2px 1px #888888;
+        border-color: transparent;
+        border-radius: 1px;
+      }
+
+      .white_content .title span {
+        margin-left: 6px;
+        text-align: left;
+        font-weight: normal;
+        color: #fff;
+        font-size: 14px;
+        font-family: "lucida Grande", Verdana, "Microsoft YaHei";
+      }
+
+      .white_content .title a {
+        padding: 1px;
+        float: right;
+        width: 18px;
+        color: red;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .white_content .title a:hover {
+        color: white;
+        background: #444;
+      }
+
+      .white_content    .content {
+        width: 100%;
+        height: 500px;
+        margin: 0 auto;
+        overflow: auto;
+      }
+
+      .white_content .btn {
+        height: 55px;
+        width: 100%;
+        margin-left: -6px;
+      }
+
+      .white_content .btn button {
+        width: 80px;
+        height: 25px;
+        border: groove #000 1px;
+        background: #1576B8;
+        border-color: transparent;
+        box-shadow: 0px 0px 3px 1px #555;
+        color: #fff;
+        border-radius: 6px;
+        -moz-border-radius: 6px;
+        cursor: Pointer;
+        font-family: "黑体";
+      }
+
+      .white_content  .btn{
+         
+        height: 55px;
+        width: 100%;
+        margin-left: 6px;
+      }
+
+      .line {
+        padding-top: 0px;
+        width: 100%;
+        height: 30px;
+        margin: 0px auto;
+      }
+
+      .table {
+        height: 80%;
+        overflow-x: hidden;
+        overflow-y: auto;
+      font-family: "lucida Grande", Verdana, "Microsoft YaHei";
+      }
+
+      .table-line {
+        display: table;
+        width: 100%;
+        margin: 0px auto;
+        margin-left: 0px;
+        border-collapse: separate;
+        border: 1px solid #bbb;
+      }
+
+      .th {
+        background: #4F4F4F;
+        color: #fff;
+      }
+
+      .table-line-xuhao {
+        width: 40px;
+        display: table-cell;
+        border-collapse: separate;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      .table-line-key {
+        width: 30%;
+        display: table-cell;
+        border-collapse: separate;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+
+      .table-line-value {
+        width: 30%;
+        display: table-cell;
+        border-collapse: separate;
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+      .tr {
+        background: #E5E5E5;
+        color: #000;
+        height:0px;
+      }
+
+      .table-line-cz {
+        width: 50px;
+        display: table-cell;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-left: 8px;
+        border-collapse: separate;
+          position:relative;
+      }
+      .text {
+        width: 98%;
+        display: block;
+        border: 1px solid #ccc;
+        height: 100%;
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px
+          rgba(102, 175, 233, 0.6);
+        outline: none;
+        height:40px;
+        color: #555;
+      }
+
+      .text:focus {
+        border-color: #66afe9;
+      }
+      .cz_button {
+          position:absolute;  
+        color: #fff;
+        background-color: #5cb85c;
+        border-color: #4cae4c;
+        display: block;
+        font-size: 14px;
+        margin:0px auto;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+          margin-top:10px;
+          margin-left:50px;
+          height:20px;
+          margin-bottom:10px;
+      }
+
+      .cz_button:hover {
+        background-color: #30a050;
+        color: #fff;
+      }
+  </style>
+  
+
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+   
+    <script type="text/javascript">
+      function temppoint(){
+        this.tempx = "";
+        this.tempy = "";
+        this.sec_x="";
+        this.sec_y="";
+        this.endX="";
+        this.endY="";
+        this.ctx="";
+        this.startx="";
+        this.starty="";
+        this.Return_MSG="";
+        this.AutoMissionWebSocket;
+      }
+
+      function PaintOneMSG(fromid,toid,Xcenter,time,AutoMissionWebSocket,Return_MSG){// 开始的 测试执行代码片段。time为进度条的速度，Xcenter默认200
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        FuYuan();
+        var x,y,X,Y;
+        for(var i=0;i<coordinateSectorArray.length;i++){
+          if(coordinateSectorArray[i][0].toString() == fromid.toString()){
+            x=coordinateSectorArray[i][1];
+            y=coordinateSectorArray[i][2];
+          }
+          if(coordinateSectorArray[i][0].toString() == toid.toString()){
+            X=coordinateSectorArray[i][1];
+            Y=coordinateSectorArray[i][2];
+          }
+        }
+        PaintDynamicLine(ctx,x,y,Xcenter,X,Y,time,AutoMissionWebSocket,Return_MSG);//x,y,Xcenter,X,Y,time
+      }
+            
+      function FuYuan(){
+        var canvas=document.getElementById("canvas");  //读取canvas元素的id
+        var context=canvas.getContext("2d");
+        context.fillStyle="#fff";  //填充的颜色
+        context.strokeStyle="#fff";  //边框颜色
+        context.linewidth=10;  //边框宽
+        context.fillRect(0,0,500,500);  //填充颜色 x y坐标 宽 高
+        context.strokeRect(0,0,500,500);  
+      }
+
+      function PaintDynamicLine(ctx,x,y,Xcenter,X,Y,time,AutoMissionWebSocket,Return_MSG){
+        var mytemppointA=new temppoint();
+        mytemppointA.startx=x;
+        mytemppointA.starty=y;
+        mytemppointA.tempx=x;
+        mytemppointA.tempy=y;
+        vector_x=1;
+        vertor_y=1;
+        if(Xcenter>x)
+        {
+          mytemppointA.sec_x=vector_x;
+          mytemppointA.endX=Xcenter+5;
+        }
+        else{
+          mytemppointA.sec_x=-vector_x;
+          mytemppointA.endX=Xcenter-5;
+        }
+        mytemppointA.sec_y=0;
+
+        mytemppointA.endY=y;
+        mytemppointA.ctx=ctx;
+
+        var mytemppointB=new temppoint();
+        mytemppointB.startx=Xcenter;
+        mytemppointB.starty=y;
+        mytemppointB.tempx=Xcenter;
+        mytemppointB.tempy=y;
+        vector_x=1;
+        vertor_y=1;
+        if(Y>y)
+        {
+          mytemppointB.sec_y=vertor_y;
+          mytemppointB.endY=Y+5;
+        }
+        else {
+          mytemppointB.sec_y=-vertor_y;
+          mytemppointB.endY=Y-5;
+        }
+        mytemppointB.sec_x=0;
+        mytemppointB.endX=Xcenter;
+
+        mytemppointB.ctx=ctx;
+
+        var mytemppointC=new temppoint();
+        mytemppointC.startx=Xcenter;
+        mytemppointC.starty=Y;
+        mytemppointC.tempx=Xcenter;
+        mytemppointC.tempy=Y;
+        vector_x=1;
+        vertor_y=1;
+        if(X>Xcenter)
+        mytemppointC.sec_x=vector_x;
+        else  mytemppointC.sec_x=-vector_x;
+        mytemppointC.sec_y=0;
+        mytemppointC.endX=X;
+        mytemppointC.endY=Y;
+        mytemppointC.ctx=ctx;
+        mytemppointC.AutoMissionWebSocket=AutoMissionWebSocket;
+        mytemppointC.Return_MSG=Return_MSG;
+
+        window.flag=window.setInterval(updateline,time,mytemppointA);
+        window.flag2=window.setInterval(updatelineB,time,mytemppointB);
+        window.flag3=window.setInterval(updatelineC,time,mytemppointC);
+      }
+
+      var flag;
+      var flag2;
+      var flag3;
+      var AIs_done=false;
+      var BIs_done=false;
+      var IScannextonemsgflag;
+      var CanNextMSG=false;// 标志  能否向后台发送下一条MSG请求
+
+      function updatelineB(mytemppoint){
+        // console.log("lineB 在执行");
+        if(AIs_done){
+          if(mytemppoint.tempx!=mytemppoint.endX){ 
+            mytemppoint.ctx.beginPath();  
+            mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+            mytemppoint.ctx.lineWidth = "10";
+            
+            mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+            mytemppoint.tempx+=mytemppoint.sec_x;
+            mytemppoint.tempy+=mytemppoint.sec_y;
+
+            mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+             // mytemppoint.ctx.stroke();
+            mytemppoint.ctx.fill();//填充
+            mytemppoint.ctx.stroke();//画线
+          }
+          else if(mytemppoint.tempy!=mytemppoint.endY) {
+            mytemppoint.ctx.beginPath();  
+            mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+            mytemppoint.ctx.lineWidth = "10";
+
+            mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+            mytemppoint.tempx+=mytemppoint.sec_x;
+            mytemppoint.tempy+=mytemppoint.sec_y;
+             
+            mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+            // mytemppoint.ctx.stroke();
+            mytemppoint.ctx.fill();//填充
+            mytemppoint.ctx.stroke();//画线
+          }
+          else{
+              AIs_done=false;
+              BIs_done=true;
+              clearInterval(flag2);
+          }
+        }
+      }
+
+      function updatelineC(mytemppoint){
+        // console.log(CanNextMSG+"ling msg 绘制完成");
+        if(BIs_done){
+          if(mytemppoint.tempx!=mytemppoint.endX){ 
+            mytemppoint.ctx.beginPath();  
+            mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+            mytemppoint.ctx.lineWidth = "10";
+
+            mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+            mytemppoint.tempx+=mytemppoint.sec_x;
+            mytemppoint.tempy+=mytemppoint.sec_y;
+
+            mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+            // mytemppoint.ctx.stroke();
+            mytemppoint.ctx.fill();//填充
+            mytemppoint.ctx.stroke();//画线
+          }
+          else if(mytemppoint.tempy!=mytemppoint.endY){
+            mytemppoint.ctx.beginPath();  
+            mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+            mytemppoint.ctx.lineWidth = "10";
+
+            mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+            mytemppoint.tempx+=mytemppoint.sec_x;
+            mytemppoint.tempy+=mytemppoint.sec_y;
+             
+            mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+            // mytemppoint.ctx.stroke();
+            mytemppoint.ctx.fill();//填充
+            mytemppoint.ctx.stroke();//画线
+          }
+          else if(mytemppoint.tempx==mytemppoint.endX&&mytemppoint.tempy==mytemppoint.endY)
+          {
+            var i=0;
+            while(i<1000000){
+              i=i+0.01
+            }
+            FuYuan();
+              
+            BIs_done=false;
+              
+            //mytemppoint.AutoMissionWebSocket.send(mytemppoint.Return_MSG);//***************************
+            clearInterval(window.flag3);                                  //再次调用websocket画下一条线
+          }                                                               //***************************
+        }
+      }
+        
+      function updateline(mytemppoint){
+        if(mytemppoint.tempx!=mytemppoint.endX){ 
+          mytemppoint.ctx.beginPath();  
+          mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+          mytemppoint.ctx.lineWidth = "10";
+            
+          mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+          mytemppoint.tempx+=mytemppoint.sec_x;
+          mytemppoint.tempy+=mytemppoint.sec_y;
+
+          mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+          // mytemppoint.ctx.stroke();
+          mytemppoint.ctx.fill();//填充
+          mytemppoint.ctx.stroke();//画线
+        }
+        else if(mytemppoint.tempy!=mytemppoint.endY) {
+          mytemppoint.ctx.beginPath();  
+          mytemppoint.ctx.strokeStyle = "#5B9BD5";  
+          mytemppoint.ctx.lineWidth = "10";
+
+          mytemppoint.ctx.moveTo(mytemppoint.tempx,mytemppoint.tempy); 
+          mytemppoint.tempx+=mytemppoint.sec_x;
+          mytemppoint.tempy+=mytemppoint.sec_y;
+             
+          mytemppoint.ctx.lineTo(mytemppoint.tempx,mytemppoint.tempy);  
+          // mytemppoint.ctx.stroke();
+          mytemppoint.ctx.fill();//填充
+          mytemppoint.ctx.stroke();//画线
+        }
+        else{
+          AIs_done=true;
+          clearInterval(flag);
+        }
+      }
+       //*=============================================================
+      //*   功能： 修改 window.setInterval ，使之可以传递参数和对象参数    
+      //*   方法： setInterval (回调函数,时间,参数1,,参数n)  参数可为对象:如数组等
+      //*============================================================= 
+      var mySetInterval = setInterval; 
+      window.setInterval = function(callback, interval) 
+      { 
+        var args = Array.prototype.slice.call(arguments, 2); 
+        function callFn(){callback.apply(null, args);} 
+        return mySetInterval(callFn, interval); 
+      } 
+      var coordinateSectorArray=[ // 每个模块对应的 canvas的  x,y 坐标默认值
+      ["A",0,43],
+      ["B",0,180],
+      ["C",0,316],
+      ["D",0,452],
+      ["E",400,43],
+      ["F",400,180],
+      ["G",400,316],
+      ["H",400,452]
+      ];
+      var AutoMissionWebSocket;
+      var AutoMissionURL="ws://127.0.0.1:8080/DataFlowShow/SectorControl";
+    </script>
+    <script src="res/script/jquery-1.9.1.js"></script>
+    <script src="res/script/jquery-ui.js"></script>
+    <script src="res/script/manualMissStart_html.js"></script>
+    <style type="text/css">
+      .divlingmsgshow{
+        margin:0px auto;
+        max-width:200px;
+        text-align: center;
+        box-shadow: 0px 0px 5px 1px #ddd;
+        color:red;
+        font-size:18px;
+      }
+      .msgblack_overlay{
+        display: none;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 1004;
+        -moz-opacity: 0.1;
+        opacity: .10;
+        filter: alpha(opacity =   10);
+      }
+      .msghwhite_content{
+        position: absolute;
+        left: 50%;
+        display: none;
+        border-radius: 8px;        
+        margin-left: -160px;        
+        width: 320px;
+        height: 0px;
+        padding: 0px;
+        border: 5px solid white;
+        background: #fff;
+        z-index: 1005;
+        text-align: center;
+        box-shadow: 0px 0px 5px 1px #ddd;
+      }
+
+      .msghwhite_content .title {
+        width: 100%;
+        background-color: #4B90F9;
+        text-align: left;
+        font-weight: bold;
+        box-shadow: 0px 0px 2px 1px #888888;
+        border-color: transparent;
+        border-radius: 1px;
+      }
+
+      .msghwhite_content .title span {
+        margin-left: 6px;
+        text-align: left;
+        font-weight: normal;
+        color: #fff;
+        font-size: 14px;
+        font-family: "lucida Grande", Verdana, "Microsoft YaHei";
+      }
+      .msghwhite_content    .content {
+        width: 100%;
+        height: 100px;
+        margin: 50px auto;
+        overflow: auto;
+      }
+      .msghwhite_content .title a {
+        padding: 1px;
+        float: right;
+        width: 18px;
+        color: red;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+    </style>
+</head>
+<body>       
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="Main.html">
+        <span class="glyphicon glyphicon-user"></span>
+        作战信息交换仿真模拟系统
+      </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav navbar-left">
+        <li class="dropdown active">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="glyphicon glyphicon-list"></span>
+            信息总览 
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="Main.html">任务关联平台</a></li>
+            <li class="divider"></li>
+            <li class="active"><a href="showMission.html">当前已有任务</a></li>
+            <li class="divider"></li>
+            <li><a href="showProtocol.html">平台关联协议</a></li>
+            <li class="divider"></li>
+            <li><a href="adminPT.html">平台管理</a></li>
+          </ul>
+        </li>
+        <li><a href="adminMission.html"><span class="glyphicon glyphicon-calendar"></span>任务管理</a></li>
+        <li><a href="adminprotocol.html"><span class="glyphicon glyphicon-file"></span>协议管理</a></li>
+        <li><a href="adminMsg.html"><span class="glyphicon glyphicon-comment"></span>消息管理</a></li>
+        <li><a href="Startfangzheng.html"><span class="glyphicon glyphicon-wrench"></span>仿真控制</a></li>         
+      </ul>
+      <button type="button" class="btn btn-default navbar-btn logout navbar-right" style="margin-right:15px;">
+        退出
+      </button>      
+      <p class="navbar-text navbar-right" id="nowtime" style="margin-right:15px;">时间</p>
+      <p class="navbar-text navbar-right" id="currentMission" style="margin-right:15px;"></p>
+    </div>     
+  </nav> 
+  <div class="wrap">     
+    <!--内容区域-->
+    <div id="MSGfade" class="msgblack_overlay">
+    </div>
+    <div id="MSGlight" class="msghwhite_content">         <!--MSGlight&MSGfade为自动演示完后的提示框-->
+      <div class="title" id="title">
+        <span>消息提示</span>
+        <a href="javascript:" id="MSGx">×</a>
+      </div>
+      <div class="content" id="MSGcontent">
+      </div>
+    </div>
+    <div id="fade" class="black_overlay"></div>           <!--light和fade两个系统发送指令后显示查看指令页面-->
+    <div id="light" class="white_content">
+      <div class="title" id="title">
+        <span>消息提示</span><a href="javascript:" id="x">×</a>
+      </div>
+      <div class="content" id="content">
+        <div class="line table">
+          <div class="table-line th">
+            <div class="table-line-xuhao">序号</div>
+            <div class="table-line-key">数据段名称</div>
+            <div class="table-line-value">数据段值</div>
+            <div class="table-line-cz">操作</div>
+          </div>
+        </div>
+      </div>
+      <div class="btn">
+        <button id="updateData">保存修改</button>
+      </div>              
+    </div> 
+    <div class="divMSGLine">
+      <div class="span" id="MSGItem">主要标签</div>
+    </div>
+    <div class="divcontainer">
+      <div class="divleftcontainer">
+        <div class="divItemleft" id="A">编队作战指挥系统</div>
+        <div class="divItemleft" id="B">本舰作战指挥系统</div>
+        <div class="divItemleft" id="C">航空兵作战指挥系统</div>
+        <div class="divItemleft" id="D">航空管制系统</div>
+      </div>
+      <div style="margin:0px auto" class="showarea">
+        <canvas class="ctx" id="canvas" width="380" height="550">
+        </canvas>
+      </div>
+      <div class="divrightcontainer">
+        <div class="divItem" id="E">综合导航系统</div>
+        <div class="divItem" id="F">综合气象水文系统</div>
+        <div class="divItem" id="G">航保指挥管理系统</div>
+        <div class="divItem" id="H">航保起飞与着舰引导系统</div>
+      </div> 
+    </div>                                      <!--水平箭头动画框-->
+    <div class="SectorMSG" id="showmsg"></div>
+    
+  </div> 
+
+  <script src="res/script/jquery.js"></script>
+  <script src="res/script/bootstrap.js"></script>
+  <script src="res/script/logout.js"></script>
+
+  <script src="res/script/jquery-1.9.1.js"></script>
+
+</body>
+
+</html>
