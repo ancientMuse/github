@@ -215,7 +215,7 @@ $(document).ready(function() {
 			$("#MSGItem").html("指令编号:"+I+" 含义:"+get_I_MapName(I));
 
 			getfangzhengMSG(from_sector,I);
-			PaintOneMSG(from_sector,to_sector,200,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
+			PaintOneMSG(from_sector,to_sector,150,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
 
 			//底下水平箭头动画
 			var str="<div class='linemsg'><div class='xuhao'><div class='xh'>"+sectorListcount+"</div></div><div class='time'>"+t+"</div><div class='fromsector'><div class='listsector'>"+get_SectorName(from_sector)+"</div></div><div class='SJL'><div class='I'>"+get_I_MapName(I)+"</div><div class='Iprogress'><div class='allprocess'><div class='nowprocess'></div></div><div class='triangle'></div></div></div><div class='toSector'><div class='listsector'>"+get_SectorName(to_sector)+"</div></div></div>";

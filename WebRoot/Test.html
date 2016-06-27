@@ -47,8 +47,8 @@
       context.fillStyle="#fff";  //填充的颜色
       context.strokeStyle="#fff";  //边框颜色
       context.linewidth=10;  //边框宽
-      context.fillRect(0,0,500,500);  //填充颜色 x y坐标 宽 高
-      context.strokeRect(0,0,500,500);  
+      context.fillRect(0,0,300,370);  //填充颜色 x y坐标 宽 高
+      context.strokeRect(0,0,300,370);  
     }
 
     function PaintDynamicLine(ctx,x,y,Xcenter,X,Y,time,AutoMissionWebSocket,Return_MSG){
@@ -256,14 +256,14 @@
       return mySetInterval(callFn, interval); 
     } 
     var coordinateSectorArray=[ // 每个模块对应的 canvas的  x,y 坐标默认值
-    ["A",0,43],
-    ["B",0,180],
-    ["C",0,316],
-    ["D",0,452],
-    ["E",400,43],
-    ["F",400,180],
-    ["G",400,316],
-    ["H",400,452]
+    ["A",0,35],
+    ["B",0,135],
+    ["C",0,235],
+    ["D",0,335],
+    ["E",300,35],
+    ["F",300,135],
+    ["G",300,235],
+    ["H",300,335]
     ];
     var AutoMissionWebSocket;
     var AutoMissionURL="ws://127.0.0.1:8080/DataFlowShow/AutoMission";
@@ -325,6 +325,7 @@
     <div class="divMSGLine">
       <div class="span" id="MSGItem">主要标签</div>
     </div>
+    <div class="SectorMSG" id="showmsg"></div>
     <div class="divcontainer">
       <div class="divleftcontainer">
         <div class="divItemleft" id="A">编队作战指挥系统</div>
@@ -343,7 +344,8 @@
         <div class="divItem" id="H" style="padding-top:15px;">航保起飞与着舰引导系统</div>
       </div> 
     </div>                                      <!--动画框-->
-    <div class="SectorMSG" id="showmsg"></div>
+    <div class="msgright" id="msgright">
+    </div>
   </div> 
 
   <script src="res/script/bootstrap.js"></script>
