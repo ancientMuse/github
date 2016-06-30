@@ -90,7 +90,7 @@ nav{
   float: left;
 }
 
-.divItem,.divItemleft {
+.divItem {
   width: 150px;
   height: 70px;
   margin: 0 auto;
@@ -98,7 +98,7 @@ nav{
   text-align: center;
   padding-top: 23px;
   font-size: 16px;
-  background: #eee;
+  background-color: #eee;
   border-radius: 1px;
   box-shadow: 0px 0px 1px 1px #888888;
 }
@@ -117,10 +117,8 @@ nav{
   margin-left: 1px;
 }
 
-.SectorMSG {        
-  background: #EEE;        
-  overflow: auto;
-  border-radius: 1px;          
+.SectorMSG {               
+  overflow: auto;    
   width: 450px;
   height: 973px;
   padding:8px;
@@ -131,150 +129,11 @@ nav{
 .msgright{
   width:622px;
   height:500px;
-  background:#eee;
   float:left;
-  font-size:10px;
   overflow: auto;
+  padding:8px;
   margin-top: 28px;
   box-shadow: 0px 0px 3px 1px #888888;
-}
-
-.linemsg {
-  float: left;
-  width: 760px;
-  height: 80px;
-  background: #f8f8f8;
-  box-shadow: 0px 0px 5px 3px #a0a0a0;
-  border: 1px solid #f8f8f8;
-  margin-top: 10px;
-  border-radius: 1px;
-}
-
-.xuhao {
-  width: 38px;
-  float: left;
-  height: 100%;
-  padding-top: 24px;
-  padding-left: 6px;
-}
-
-.xuhao .xh {
-  border-color: transparent;
-  background: #6495ED;
-  color: #fff;
-  width: 28px;
-  height: 28px;
-  font-size: 11px;
-  line-height: 28px;
-  text-align: center;
-  border-radius: 50%;;
-  -moz-border-radius: 50%;;
-}
-
-.time {
-  width: 80px;
-  float: left;
-  height: 100%;
-  padding-top: 20px;
-  text-align: center;
-  font-size: 10px;
-}
-
-.fromsector {
-  width: 170px;
-  float: left;
-  height: 0%;
-}
-
-.listsector {
-  word-break: break-all;
-  color: #000;
-  margin-top: 10px;
-  width: 160px;
-  height: 60px;
-  line-height: 60px;
-  box-shadow: 0px 0px 5px 3px #a0a0a0;
-  float: left;
-  margin-bottom: 0px;
-  font-size: 14px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background: #4f8fcd;
-  border: 1px solid #4f8fcd;
-  border-radius: 4px;
-  float: left;
-  color: #fff;
-}
-
-.SJL {
-  width: 180px;
-  float: left;
-  height: 100%;
-  background: #f8f8f8;
-}
-
-.I {
-  margin-top: 9px;
-  margin-bottom: 3px;
-  width: 180px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  color: red;
-  font-weight: bold;
-}
-
-.allprocess {
-  float: left;
-  margin-top: 8px;
-  width: 145px;
-  background: #000;
-  height: 15px;
-}
-
-.nowprocess {
-  width: 0%;
-  height: 100%;
-  background-color: #55b055;
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-top: 15px solid transparent;
-  border-left: 35px solid #000;
-  border-bottom: 15px solid transparent;
-  float: left;
-  border-radius: 3px;
-
-}
-
-.toSector {
-  width: 170px;
-  float: left;
-  height: 0%;
-}
-
-.listsector {
-  word-break: break-all;
-  color: #000;
-  margin-top: 10px;
-  width: 160px;
-  height: 60px;
-  line-height: 60px;
-  box-shadow: 0px 0px 5px 3px #a0a0a0;
-  float: left;
-  margin-bottom: 0px;
-  font-size: 14px;
-  text-align: center;
-  vertical-align: middle;
-  cursor: pointer;
-  background: #4f8fcd;
-  border: 1px solid #4f8fcd;
-  border-radius: 4px;
-  float: left;
-  color: #fff;
 }
 
 .showData {
