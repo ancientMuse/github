@@ -7,6 +7,7 @@ $(document).ready(function() {
    	/*
      指令编号 1-30 对应的 前台 显示的 中文 信息
    	*/
+   	// test
 	   
 	   if(I=="1")
 		   return "受领上级任务";
