@@ -212,7 +212,7 @@ $(document).ready(function() {
 			getfangzhengMSG(from_sector,I);
 			PaintOneMSG(from_sector,to_sector,150,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
 
-			//底下水平箭头动画
+			//右侧表格
 			var str="<tr><td style='text-align:center;vertical-align:middle;'>"+sectorListcount+"</td><td>"+get_SectorName(from_sector)+"</td><td>"+get_SectorName(to_sector)+"</td><td>"+get_I_MapName(I)+"</td><td>"+t+"</td></tr>";
 			$(".ZLtable").append(str);
 			document.getElementById("showmsg").scrollTop=document.getElementById("showmsg").scrollHeight;

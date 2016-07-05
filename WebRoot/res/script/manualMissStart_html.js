@@ -1,11 +1,5 @@
 $(document).ready(function() {
 
-	$("#currentMission",window.parent.document).html("<div id='removetag'>当前任务：<strong style='color:red'>舰载机出航</strong></div>");
-	$(window).unload(function(){
-		$("#removetag",window.parent.document).remove();
-		$("table[class='table table-bordered table-hover']",window.parent.document).remove();
-	});
-
 	var sectorListcount=0;
 	var Start_MSG="{'ActionType':'NextSector','FromSector':'A','FromSector_I':'2'}";
 	
@@ -126,12 +120,12 @@ $(document).ready(function() {
 	     
 	function CS(){// 复原所在
 		var html="";
-		var headhtml="<table class='table table-bordered table-hover'><thead><tr><th colspan=2 style='padding-top:0px;padding-bottom:0px;' class='no-border'><div class='tablename'>指令所在表</div></th></tr><tr><th>字段名称</th><th>值</th></tr></thead>";
+		var headhtml="<table class='table table-bordered table-hover table-striped'><thead><tr><th colspan=2>指令名称</th></tr></thead>";
 		var tempstr="<tbody>"
 		var endstr=" </tbody></table>";
 		tempstr=headhtml+tempstr+endstr;
 		html=html+tempstr
-		$("#msgright",window.parent.document).html(html);	//  $("#父窗口元素ID",window.parent.document)  操作父窗口对象    	 
+		$("#msgright").html(html);	//  $("#父窗口元素ID",window.parent.document)  操作父窗口对象    	 
 	}
 
 	function onOpen(event) {
@@ -179,19 +173,19 @@ $(document).ready(function() {
 					var html="";
 					//for(var i=0;i<D.length;i++){
 					//var count=D[i].body.length;
-					var headhtml="<table class='table table-bordered table-hover'><thead><tr><th colspan=2 style='padding-top:0px;padding-bottom:0px;' class='no-border'><div class='tablename'>"+I+"</div></th></tr><tr><th>字段名称</th><th>值</th></tr></thead>"; 
+					var headhtml="<table class='table table-bordered table-hover table-striped'><thead><tr><th colspan=2>"+I+"</th></tr></thead>"; 
 					var tempstr="<tbody>"
 					for(var i=0;i<D.length;i++){
 						var Dkey=D[i].IDataKey||D[i].iDataKey;
 		    		var Dvalue=D[i].IDataValue||D[i].iDataValue;
-						var str="<tr><td>"+Dkey+"</td>"+"<td>"+Dvalue+"</td></tr>"; 
+						var str="<tr><td style='width:40%;'>"+Dkey+"</td>"+"<td style='width:60%;'>"+Dvalue+"</td></tr>"; 
 						tempstr=tempstr+str;
 					}						    	
 					var endstr="</tbody></table>";
 					html=headhtml+tempstr+endstr;
 					//html=html+tempstr						    	
 					//}
-					$("#msgright",window.parent.document).html(html);
+					$("#msgright").html(html);
 				}
 			}
 		});			 
@@ -207,13 +201,13 @@ $(document).ready(function() {
 			console.log($("#"+rs[0].sector).html());
 			c=c+" <br/>登录用户 :<font color='red'>"+rs[0].username+"</font><br/>登录时刻:<span style='color:red;font-size:10px'>"+rs[0].logintime+"</span>";
 			$("#"+rs[0].sector).html(c);
-			$("#"+rs[0].sector).animate({ backgroundColor: "#6495ED",color:"#fff",lineHeight:"20px"}, 600);
+			$("#"+rs[0].sector).animate({ backgroundColor: "#0088cc",color:"#fff",lineHeight:"16px",paddingTop:"4px",fontSize:"14px"}, 600);
 
 			console.log(c);
 		}
 
 		if(actiontype=="offline"){
-			$("#"+rs[0].sector).animate({ backgroundColor: "#f8f8f8",color:"#000",lineHeight:"60px"}, 1200);
+			$("#"+rs[0].sector).animate({ backgroundColor: "#eee",color:"#000",lineHeight:"0",paddingTop:"23px",fontSize:"16px"}, 1200);
 			document.getElementById(rs[0].sector).innerHTML=get_SectorName(rs[0].sector);
 		}
 
@@ -229,29 +223,25 @@ $(document).ready(function() {
 			sectorListcount++;
 
 			$("#MSGItem").html("指令编号:"+I+" 含义:"+get_I_MapName(I));
+			PaintOneMSG(from_sector,to_sector,150,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
 
-			
-			
-
-			PaintOneMSG(from_sector,to_sector,200,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
-
-			//底下水平箭头动画
-			var str="<div class='linemsg'><div class='xuhao'><div class='xh'>"+sectorListcount+"</div></div><div class='time'>"+t+"</div><div class='fromsector'><div class='listsector'>"+get_SectorName(from_sector)+"</div></div><div class='SJL'><div class='I'>"+get_I_MapName(I)+"</div><div class='Iprogress'><div class='allprocess'><div class='nowprocess'></div></div><div class='triangle'></div></div></div><div class='toSector'><div class='listsector'>"+get_SectorName(to_sector)+"</div></div><div class='showData' datafrom='"+InsertToken+"'><button class='showbutton' >查看指令数据</button></div></div>";
-			$("div[class='SectorMSG']").append(str);
+			//右侧表格
+			var str="<tr><td style='text-align:center;vertical-align:middle;'>"+sectorListcount+"</td><td>"+get_SectorName(from_sector)+"</td><td>"+get_SectorName(to_sector)+"</td><td>"+get_I_MapName(I)+"</td><td>"+t+"</td></tr>";
+			$(".ZLtable").append(str);
 
 			//水平箭头动画效果
 			document.getElementById("showmsg").scrollTop=document.getElementById("showmsg").scrollHeight;
-		  $(".SectorMSG .linemsg").last().children(".fromsector").animate({height:"100%"},800);
+		  /*$(".SectorMSG .linemsg").last().children(".fromsector").animate({height:"100%"},800);
 		  $(".SectorMSG .linemsg").last().children(".toSector").animate({height:"100%"},800,function(){
 		    $(".SectorMSG .linemsg").last().children(".SJL").children(".Iprogress").children(".allprocess").children(".nowprocess").animate({width:"100%"},4000,function(){  
 		    	$(this).parent().next(".triangle").animate({borderLeftColor:"#55b055"});	
 		    });		    		  
-		  });
+		  });*/
 
-		  //右侧表格显示
-		  getfangzhengMSG(InsertToken,I); 
+		  //下方表格
+		  getfangzhengMSG(InsertToken,get_I_MapName(I)); 
 
-			$("#x").unbind("click");                        //#x和.showData查看指令数据页面
+			/*$("#x").unbind("click");                        //#x和.showData查看指令数据页面
 			$("#x").bind("click",function(){						
 				$("div[class='table-line tr']").remove();
 				$("#light").animate({marginTop:"0px",height:"0px"},function(){
@@ -337,16 +327,14 @@ $(document).ready(function() {
 						}							
 					}		    			  
 				});	  
-			});
+			});*/
 
-			var ChangeID=[];
+			/*var ChangeID=[];
 			var ChangeKey=[];
 			var ChangeValue=[];
 
 			$("#updateData").bind("click",function(){						
-				/*
-				*保存修改 的操作
-				* */
+				//保存修改 的操作
 				var Changeindex=0;
 				$("textarea[name='key']").each(function(){
 					ChangeID[Changeindex]=$(this).attr("ItemID");
@@ -389,10 +377,7 @@ $(document).ready(function() {
 						$("#MSGcontent").html("<font color='red'>数据修改成功</font>");									
 					}						
 				});		
-			});
-						    				    	 
-		}
-
-		   	 
+			});*/					    				    	 
+		}		   	 
 	}
 });
