@@ -53,8 +53,8 @@ $(document).ready(function() {
 	   	$("#YXBM").append(newoption1);
 	   	$("#ZL_From").append(newoption2);
 	   	canchange=true;
-  	  $("div[class='line table']").empty();
-	 		$("div[class='line table']").append("<div class='table-line th'><div class='table-line-xuhao'>序号</div><div class='table-line-key'>数据段名称</div><div class='table-line-value'>数据段值</div><div class='table-line-cz'>操作</div></div><div class='table-line add'><div class='table-line-add'><div class='button'><button id='addline'>添加数据</button></div></div></div>");
+  	  $("div[class='line tableform']").empty();
+	 		$("div[class='line tableform']").append("<div class='table-line th'><div class='table-line-xuhao'>序号</div><div class='table-line-key'>数据段名称</div><div class='table-line-value'>数据段值</div><div class='table-line-cz'>操作</div></div><div class='table-line add'><div class='table-line-add'><div class='button'><button id='addline'>添加数据</button></div></div></div>");
 	  	
 	  	$("#addline").bind("click",function(){									
 				var div_add="<div class='table-line tr'><div class='table-line-xuhao'>"+line_number+"</div><div class='table-line-key'><textarea class='text' name='key' placeholder='输入数据名称'></textarea></div><div class='table-line-value'><textarea class='text' name='value' placeholder='输入相应的数据值'></textarea></div><div class='table-line-cz'><button class='cz_button'>删除</button></div></div>";
@@ -130,8 +130,8 @@ $(document).ready(function() {
 					var Fromsector_I=medata.FromSector_I;
 					var I_MAP=medata.I_MAP;
 					if(medata.Status=="201"){  
-					  $("div[class='line table']").empty();
-					  $("div[class='line table']").append("<div class='table-line th'><div class='table-line-xuhao'>序号</div><div class='table-line-key'>数据段名称</div><div class='table-line-value'>数据段值</div><div class='table-line-cz'>操作</div></div><div class='table-line add'><div class='table-line-add'><div class='button'><button id='addline'>添加数据</button></div></div></div>");
+					  $("div[class='line tableform']").empty();
+					  $("div[class='line tableform']").append("<div class='table-line th'><div class='table-line-xuhao'>序号</div><div class='table-line-key'>数据段名称</div><div class='table-line-value'>数据段值</div><div class='table-line-cz'>操作</div></div><div class='table-line add'><div class='table-line-add'><div class='button'><button id='addline'>添加数据</button></div></div></div>");
 						$("#addline").bind("click",function(){																
 							var div_add="<div class='table-line tr'><div class='table-line-xuhao'>"+line_number+"</div><div class='table-line-key'><textarea class='text' name='key' placeholder='输入数据名称'></textarea></div><div class='table-line-value'><textarea class='text' name='value' placeholder='输入相应的数据值'></textarea></div><div class='table-line-cz'><button class='cz_button'>删除</button></div></div>";
 							$(this).parent().parent().parent().before(div_add);
@@ -166,7 +166,7 @@ $(document).ready(function() {
 					   	$("#YXBM").append(option);															
 						}
 					     
-					  _scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+					  /*_scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
 			   	  _scrollHeight = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
 			   	  document.getElementById('fade').style.width=_scrollWidth+"px";
 				  	document.getElementById('fade').style.height=_scrollHeight+"px";
@@ -177,12 +177,15 @@ $(document).ready(function() {
 			      $("#fade").animate({opacity:"0.8"});
 			      $("#light").animate({marginTop:"15%",width:"220px",height:"200px"});												      
 			      $("#content").html("接受来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font>");
-			      $("#change").html("响应指令");
+			      $("#change").html("响应指令");*/
+			      $("#myModal2 .modal-body").empty();
+			      $("#myModal2 .modal-body").html("<h4><b>接收来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font></b></h4>");
+			      $("#myModal2").modal("show");
 			      document.getElementById('messages').innerHTML+= '<br />'+getNowFormatDate()+" "+"接受来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font>";
 					}
 					else{
 						$("#change").html("响应指令");
-						$("#content").html("接受来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font>");
+						$("#content").html("接收来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font>");
 				   	document.getElementById('messages').innerHTML+= '<br />'+getNowFormatDate()+" "+"接受来自模块 <font color='red'>"+get_SectorName(fromsector)+"</font>的指令<font color='red'>"+I_MAP+"</font>";
 				   	canchange=true;														
 					}																												
@@ -217,7 +220,6 @@ $(document).ready(function() {
 		qs = "E";
 	if (sc == "006")
 		qs = "F";
-
 	if (sc == "007")
 		qs = "G";
 	if (sc == "008")
@@ -248,7 +250,12 @@ $(document).ready(function() {
 					
 	function keychange(){		
 	}
-					
+	
+	function sleep(n) {
+    var start = new Date().getTime();
+    while(true) if(new Date().getTime()-start > n) break;
+   }
+
  	function getSectorMSG(fromsector){
 	 	$.ajax({
 			type : "POST",
@@ -267,7 +274,7 @@ $(document).ready(function() {
 					var html="";
 			    for(var i=0;i<D.length;i++){
 			    	var count=D[i].body.length;
-			    	var headhtml="<table class='table table-bordered table-hover'><col width='220px'/><thead><tr><th colspan=2 style='padding-top:2px;padding-bottom:2px;' class='no-border'><div class='tablename'>"+D[i].tablename+"</div></th></tr><tr><th>字段名称</th><th>值</th></tr></thead>";
+			    	var headhtml="<table class='table table-bordered table-hover table-striped'><col width='220px'/><thead><tr><th colspan=2 style='padding-top:0px;padding-bottom:0px;' class='no-border'><div class='tablename'>"+D[i].tablename+"</div></th></tr></thead>";
 			    	var tempstr="<tbody>";
 			      for(var j=0;j<D[i].body.length;j++){
 		        	var str="<tr><td>"+D[i].body[j].str+"</td>"+"<td>"+D[i].body[j].value+"</td></tr>";
@@ -314,18 +321,25 @@ $(document).ready(function() {
 					I_data_value:value	
 				},
 				beforeSend : function(XMLHttpRequest) {
-				 	_scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+				 	/*_scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
 		   	  _scrollHeight = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
 		   	 	document.getElementById('loading').style.width=_scrollWidth+"px";
 				  document.getElementById('loading').style.height=_scrollHeight+"px";
 				 	$("#loading").animate({marginTop:"0px"},0,function(){
 					 	$(this).css({display:"block"})
-			 		});
+			 		});*/
+					
+         	$("#submit").button('loading').delay(3000).queue(function(){
+         		$(this).button('reset');
+         	});
+      		
 				},
 				success : function(data,textStatus) {
-			 		$("#loading").animate({marginTop:"0px"},500,function(){
+			 		/*$("#loading").animate({marginTop:"0px"},500,function(){
 				 		$(this).css({display:"none"});
-				 	});
+				 	});*/
+					sleep(1000);
+					$("#submit").button('reset');
 					if(textStatus=="success"){
 						// alert(data);
 					 	data=eval(data);
@@ -333,7 +347,7 @@ $(document).ready(function() {
 						// alert(data);
 					  var JSON_WS="{'ActionType':'NextSector',"+"'ToSector':"+$("#YXBM").val()+",'FromSector':"+qs+",'FromSector_I':"+$("#ZL_From").val()+",'TimeInsertData':'"+data[0].TimeInsertData+"','InsertToken':'"+data[0].InsertToken+"'}";
 					  sendMSG(JSON_WS);
-					 	_scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
+					 	/*_scrollWidth = Math.max(document.body.scrollWidth,document.documentElement.scrollWidth);
 			   	  _scrollHeight = Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
 			   	  document.getElementById('fade').style.width=_scrollWidth+"px";
 					  document.getElementById('fade').style.height=_scrollHeight+"px";
@@ -344,7 +358,8 @@ $(document).ready(function() {
 			      $("#light").animate({marginTop:"15%",width:"220px",height:"200px"});
 			      $("#content").html("指令发送成功！");
 			      $(".but").css({display:"block"});
-			      $("#change").html("确定");								      
+			      $("#change").html("确定");*/
+			      $("#myModal1").modal("show");								      
 						$("div[class='table-line tr']").remove();
 						line_number=1;
 					}																		
@@ -428,7 +443,7 @@ $(document).ready(function() {
 	$("#YXBM").change(function() {
    	var val=$(this).val();
    	console.log("改变的值 ："+val);
-   	$("div[class='line table']").css({display:"table"});
+   	$("div[class='line tableform']").css({display:"table"});
 		$("div[class='line']:eq(2)").css({display:"block"});
 		if(canchange&&val!="I"){		
 			$("#ZL_From").empty();													
@@ -451,7 +466,7 @@ $(document).ready(function() {
 		}
 		else if(val=="I"){
 			//console.log("zhixingl ")
-		 	$("div[class='line table']").css({display:"none"});
+		 	$("div[class='line tableform']").css({display:"none"});
 			$("div[class='line']:eq(2)").css({display:"none"});													
 			/*
 			 发送 请求的地方* 

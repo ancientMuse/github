@@ -38,6 +38,12 @@
           Y=coordinateSectorArray[i][2];
         }
       }
+      $("#"+fromid.toString()+",#"+toid.toString()+"").css({
+        "background-color":"#0088cc",
+        "color":"#fff",
+        "box-shadow":"0px 0px 1px 1px #eee"
+      });
+
       PaintDynamicLine(ctx,x,y,Xcenter,X,Y,time,AutoMissionWebSocket,Return_MSG);//x,y,Xcenter,X,Y,time
     }
 
@@ -46,7 +52,7 @@
       var context=canvas.getContext("2d");
       context.fillStyle="#fff";  //填充的颜色
       context.strokeStyle="#fff";  //边框颜色
-      context.linewidth=10;  //边框宽
+      context.linewidth=1;  //边框宽
       context.fillRect(0,0,300,370);  //填充颜色 x y坐标 宽 高
       context.strokeRect(0,0,300,370);  
     }
@@ -203,7 +209,11 @@
           FuYuan();
 
           BIs_done=false;
-
+          $(".divItem").css({
+            "background-color":"#eee",
+            "color":"#000",
+            "box-shadow":"0px 0px 1px 1px #888"
+          });
           mytemppoint.AutoMissionWebSocket.send(mytemppoint.Return_MSG);//***************************
           clearInterval(window.flag3);                                  //再次调用websocket画下一条线
         }                                                               //***************************
@@ -307,31 +317,45 @@
         退出
       </button>      
       <p class="navbar-text navbar-right" id="nowtime" style="margin-right:15px;">时间</p>
-      <p class="navbar-text navbar-right" id="currentMission" style="margin-right:5px;"></p>
+      <p class="navbar-text navbar-right" id="currentMission" style="margin-right:5px;">当前任务：<strong style='color:red'>舰载机出航</strong></p>
     </div>     
   </nav> 
   <div class="wrap">     
-    <!--内容区域-->
+    <!--内容区域
     <div id="MSGfade" class="msgblack_overlay">
     </div>
-    <div id="MSGlight" class="msghwhite_content"><!--MSGlight&MSGfade为自动演示完后的提示框-->
+    <div id="MSGlight" class="msghwhite_content">
       <div class="title" id="title">
         <span>消息提示</span>
         <a href="javascript:" id="MSGx">×</a>
       </div>
       <div class="content" id="MSGcontent">
       </div>
-    </div>
+    </div>-->
     <div class="divMSGLine">
       <div class="span" id="MSGItem">主要标签</div>
     </div>
-    <div class="SectorMSG" id="showmsg"></div>
+    <div class="SectorMSG" id="showmsg">
+      <table class="table table-bordered table-hover table-striped">
+        <thead>
+          <tr>
+            <th style="width:48px;">序号</th>
+            <th style="width:84px;">发送台位</th>
+            <th style="width:84px;">接收台位</th>
+            <th style="width:105px;">指令名称</th>
+            <th style="width:95px;">发送时间</th>
+          </tr>
+        </thead>
+        <tbody class="ZLtable">
+        </tbody>
+      </table>
+    </div>
     <div class="divcontainer">
       <div class="divleftcontainer">
-        <div class="divItemleft" id="A">编队作战指挥系统</div>
-        <div class="divItemleft" id="B">本舰作战指挥系统</div>
-        <div class="divItemleft" id="C">航空兵作战指挥系统</div>
-        <div class="divItemleft" id="D">航空管制系统</div>
+        <div class="divItem" id="A">编队作战指挥系统</div>
+        <div class="divItem" id="B">本舰作战指挥系统</div>
+        <div class="divItem" id="C">航空兵作战指挥系统</div>
+        <div class="divItem" id="D">航空管制系统</div>
       </div>
       <div style="margin:0px auto" class="showarea">
         <canvas class="ctx" id="canvas" width="300" height="370">
@@ -343,11 +367,34 @@
         <div class="divItem" id="G">航保指挥管理系统</div>
         <div class="divItem" id="H" style="padding-top:15px;">航保起飞与着舰引导系统</div>
       </div> 
-    </div>                                      <!--动画框-->
+    </div>                                      
     <div class="msgright" id="msgright">
     </div>
   </div> 
 
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:30%;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            消息提示
+          </h4>
+        </div>
+        <div class="modal-body" style="text-align:center">
+          <h4><strong>任务模拟完成</strong></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            关闭
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+  
   <script src="res/script/bootstrap.js"></script>
   <script src="res/script/logout.js"></script>
 </body>
