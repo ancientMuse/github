@@ -30,11 +30,11 @@ $(document).ready(function() {
 	   if(I=="11")
 		   return "接受下级计划";
 	   if(I=="12")
-		   return "接受导航、气象、平台系统计划";
+		   return "接受导航、气象、台位系统计划";
 	   if(I=="13")
-		   return "接受导航、气象、平台系统计划";
+		   return "接受导航、气象、台位系统计划";
 	   if(I=="14")
-		   return "接受导航、气象、平台系统计划";
+		   return "接受导航、气象、台位系统计划";
 	   if(I=="15")
 		   return "接受编队系统命令";
 	   if(I=="16")

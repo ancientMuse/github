@@ -20,7 +20,7 @@ $(document).ready(function() {
 		if(code=="H")
 			return "航保起飞与着舰引导系统";  
 		if(code=="I")
-			return "平台";
+			return "台位";
 		return "监控系统";
 	}
 
@@ -486,9 +486,9 @@ $(document).ready(function() {
 		      $("#fade").animate({opacity:"0.8"});
 		      $("#light").animate({marginTop:"15%",width:"545px",height:"510px"});
 		      $(".but").css({display:"none"});
-		      $("#title>span").html("平台数据显示");
+		      $("#title>span").html("台位数据显示");
 		      $("#content").html("");
-		      var ptdiv="<div class='PTDatadiv'><div class='lineTH ptth'><div class='ptsectorname'>平台名称</div><div class='ptkey'>数据段名称</div><div class='ptvalue'>数据段值</div></div><div class='lineTH' id='e'><div class='e'>电力系统</div></div><div class='lineTH' id='d'><div class='d'>损管系统</div></div><div class='lineTH' id='p'><div class='p'>动力系统</div></div></div>"
+		      var ptdiv="<div class='PTDatadiv'><div class='lineTH ptth'><div class='ptsectorname'>台位名称</div><div class='ptkey'>数据段名称</div><div class='ptvalue'>数据段值</div></div><div class='lineTH' id='e'><div class='e'>电力系统</div></div><div class='lineTH' id='d'><div class='d'>损管系统</div></div><div class='lineTH' id='p'><div class='p'>动力系统</div></div></div>"
 							      
 		      $("#content").append(ptdiv);
 		      var e_height=22*data[0].e.length+2;
@@ -515,7 +515,7 @@ $(document).ready(function() {
 		    	  var linediv="<div class='ptkey'>"+data[0].p[i].name+"</div><div class='ptvalue'>"+data[0].p[i].value+"</div>";
 		    	  $("#p").append(linediv);												    	  
 		      }
-	    	  console.log("平台e的长度："+data[0].e.length);
+	    	  console.log("台位e的长度："+data[0].e.length);
 	    	  
 	    		$("#x").bind("click",function(){
 						//alert("ce");															

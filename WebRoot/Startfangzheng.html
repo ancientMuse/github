@@ -11,7 +11,8 @@
     var theDiv=document.getElementById('theDiv');
     
     var theBody=document.getElementById('theBody');
-    theDiv.style.height=theBody[0].style.height;
+    theDiv.style.height=theBody.style.height;
+
     
   </script>
   <style type="text/css">
@@ -34,15 +35,7 @@
       cursor: pointer
     }
 
-    .wrap{
-     /* min-height:100%;*/
-      background-color: rgba(255,255,255,1);
-      width: 960px;
-      margin: 100px auto 50px; 
-      border-radius: 7px;
-      overflow: auto;
-      padding: 50px 100px 20px;
-    }
+  
     
     .no-border {
       border: 1px solid transparent !important;
@@ -72,7 +65,8 @@
     }
 
     nav{
-      font-weight: bold;      
+      font-weight: bold;
+      }      
 
     td,th{
       text-align: center;
@@ -96,13 +90,13 @@
             <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="Main.html">任务关联平台</a></li>
+            <li><a href="Main.html">任务关联台位</a></li>
             <li class="divider"></li>
             <li><a href="showMission.html">当前已有任务</a></li>
             <li class="divider"></li>
-            <li><a href="showProtocol.html">平台关联协议</a></li>
+            <li><a href="showProtocol.html">台位关联协议</a></li>
             <li class="divider"></li>
-            <li><a href="adminPT.html">平台管理</a></li>
+            <li><a href="adminPT.html">台位管理</a></li>
           </ul>
         </li>
         <li><a href="adminMission.html"><span class="glyphicon glyphicon-calendar"></span>任务管理</a></li>

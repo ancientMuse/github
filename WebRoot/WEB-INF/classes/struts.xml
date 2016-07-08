@@ -13,10 +13,10 @@
 		<action name="NextSector" class="whu.com.action.NextSector"></action>
 		<action name="Delete_IDataID" class="whu.com.action.Delete_IDataID"></action>
 		<action name="get_InsertDataItem" class="whu.com.action.Get_InsertDataItem"></action><!-- 获取部门操作界面的人工插入数据，现在可以忽略-->	
-		<action name="Updata_IData" class="whu.com.action.Update_IData"></action><!-- 监控平台页面更新某一条数据，现在可以忽略-->	
-		<action name="get_PTData" class="whu.com.action.Get_sysdata"></action><!-- 获取平台数据，现在可以忽略-->	
+		<action name="Updata_IData" class="whu.com.action.Update_IData"></action><!-- 监控台位页面更新某一条数据，现在可以忽略-->	
+		<action name="get_PTData" class="whu.com.action.Get_sysdata"></action><!-- 获取台位数据，现在可以忽略-->	
 		<action name="get_Sector_I_NameMapping" class="whu.com.action.Sector_I_NameMapping"></action><!-- 消息管理页面 显示操作，部门，指令编码，指令中文名称 -->	
 		<action name="GetMSGOfLib" class="whu.com.action.GetMSGOfLib"></action>
-		<action name="GetMSGOfLibBYSector" class="whu.com.action.GetMSGOfBYSector"></action><!-- 仿真模拟开始后获取平台的模拟数据 -->
+		<action name="GetMSGOfLibBYSector" class="whu.com.action.GetMSGOfBYSector"></action><!-- 仿真模拟开始后获取台位的模拟数据 -->
 	</package>
 </struts>    
