@@ -5,65 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>仿真任务选择</title>
   <link rel="stylesheet" href="res/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="res/css/basic.css">
   <script src="res/script/time.js"></script>
   <style type="text/css">
-    body,html{
-      margin: 0;
-      padding: 0; 
-      height: 100%;  
-    }
-
-    body{
-    background-image: url(res/img/bg3.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment:fixed;
-    }
-    
-    .logout:hover {
-      color: red;
-      cursor: pointer
-    }
-
-    .wrap{
-      min-height:80%;
-      background-color: rgba(255,255,255,1);
-      width: 960px;
-      margin: 100px auto 50px; 
-      border-radius: 7px;
-      overflow: auto;
-      padding: 50px 100px 20px;
-    }
-    
-    .no-border {
-      border: 1px solid transparent !important;
-    }
-     
-    div.tablename{
-      background-color:#0088cc; 
-      background-image: linear-gradient(to bottom, #ddd 1%,#22aadd 3%, #0088cc 12%);
-      background-image: webkit-linear-gradient(to bottom, #ddd 1%,#22aadd 3% #0088cc 12%);
-      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-      border-top-left-radius:7px;
-      border-top-right-radius:7px;
-      margin-left:-9px;
-      margin-right:-9px;
-      height:40px;
-      line-height:40px;
-      padding-left:9px;
-      color:#fff;
-      font-size: 16px;
-    }
-
-    .active{
-      font-size: 16px;
-    }
-    .btn-left{
-      margin-left: 60px;
-    }
-
-    nav{
-      font-weight: bold;      
+    td,th{
+      text-align: center;
     }
   </style>
 </head>
@@ -110,7 +56,7 @@
     <table class="table table-bordered table-hover">
         <thead>
           <tr>
-            <th  colspan=3 style="padding-top:0px;padding-bottom:0px;" class="no-border">  
+            <th  colspan=3 style="padding-top:0px;padding-bottom:0px;text-align:left" class="no-border">  
               <div class="tablename">仿真任务选择</div>
             </th>
           </tr>
@@ -122,26 +68,26 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              <a href="Test.html"><button type="button" class="btn btn-success btn-left">自动</button></a>
-              <a href="manualTest.html"><button type="button" class="btn btn-primary ">手动</button></a>              
+            <td >
+              <a href="Test.html"><button type="button" class="btn btn-success ">自动演示</button></a>
+              <a href="manualTest.html"><button type="button" class="btn btn-primary ">台位监控</button></a>          
             </td>
             <td>             
-              <button type="button" class="btn btn-success btn-left">自动</button>
-              <button type="button" class="btn btn-primary ">手动</button>             
+              <button type="button" class="btn btn-success ">自动演示</button>
+              <button type="button" class="btn btn-primary ">台位监控</button>             
             </td>
             <td>              
-              <button type="button" class="btn btn-success btn-left">自动</button>
-              <button type="button" class="btn btn-primary ">手动</button>             
+              <button type="button" class="btn btn-success ">自动演示</button>
+              <button type="button" class="btn btn-primary ">台位监控</button>             
             </td> 
-          </tr>
-          
+          </tr>   
         </tbody>
       </table>
       
   </div> 
 
   <script src="res/script/jquery.js"></script>
+  <script src="res/script/getHeight.js"></script>
   <script src="res/script/bootstrap.js"></script>
   <script src="res/script/logout.js"></script>
 </body>
