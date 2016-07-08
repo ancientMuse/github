@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+
+
 	var sectorListcount=0;
 	var Start_MSG="{'ActionType':'NextSector','FromSector':'A','FromSector_I':'2'}";
 	
@@ -348,20 +351,5 @@ $(document).ready(function() {
 		var Icode= get_I_MapCode(I,sector);
 		var sectorcode = get_SectorCode(sector);
 		getfangzhengMSG(sectorcode,Icode);
-	});
-
-	$("#mis_pause").bind("click",function() {
-		$("#mis_continue").removeClass('btn-primary').addClass('btn-defalut');
-		$(this).removeClass('btn-defalut').addClass('btn-primary');
-		pause_flag = false;
-	});
-	$("#mis_continue").bind("click",function() {
-		$("#mis_pause").removeClass('btn-primary').addClass('btn-defalut');
-		$(this).removeClass('btn-defalut').addClass('btn-primary');
-		pause_flag = true;
-		AutoMissionWebSocket.send(pause_url);
-	});
-	$("#mis_reset").bind("click",function() {
-		window.location.reload();
 	});
 });

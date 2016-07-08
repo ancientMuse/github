@@ -73,6 +73,7 @@ $(document).ready(function() {
 	   if(I=="32")
 		   return "";	   
   }
+
   function get_SectorName(code){    //暂时没用到
 		
 		if(code=="A")
@@ -226,7 +227,7 @@ $(document).ready(function() {
 			PaintOneMSG(from_sector,to_sector,150,1,AutoMissionWebSocket,Return_MSG);// 最后一个为默认速度，Xcenter默认为200
 
 			//右侧表格
-			var str="<tr><td style='text-align:center;vertical-align:middle;'>"+sectorListcount+"</td><td>"+get_SectorName(from_sector)+"</td><td>"+get_SectorName(to_sector)+"</td><td>"+get_I_MapName(I)+"</td><td>"+t+"</td></tr>";
+			var str="<tr class='showTable' datafrom='"+InsertToken+"'><td style='text-align:center;vertical-align:middle;'>"+sectorListcount+"</td><td>"+get_SectorName(from_sector)+"</td><td>"+get_SectorName(to_sector)+"</td><td>"+get_I_MapName(I)+"</td><td>"+t+"</td></tr>";
 			$(".ZLtable").append(str);
 
 			//水平箭头动画效果
@@ -380,4 +381,35 @@ $(document).ready(function() {
 			});*/					    				    	 
 		}		   	 
 	}
+
+	$(document).on("click",".showTable",function(){
+		var Insert_token=$(this).attr("datafrom");
+		var I = $(this).children('td').eq(3).text();			
+    $.ajax({
+    	type : "POST",
+    	url : "get_InsertDataItem.action",
+    	dataType : "json",
+    	contentType : "application/x-www-form-urlencoded; charset=utf-8",
+    	async:false,
+    	data : {
+    		InsertToken:Insert_token,
+    	},
+    	success : function(data) { 		
+				var D = eval(data);
+				var html="";
+				var headhtml="<table class='table table-bordered table-hover table-striped'><thead><tr><th colspan=2>"+I+"</th></tr></thead>"; 
+				var tempstr="<tbody>"
+				for(var i=0;i<D.length;i++){
+					var Dkey=D[i].IDataKey||D[i].iDataKey;
+	    		var Dvalue=D[i].IDataValue||D[i].iDataValue;
+					var str="<tr><td style='width:40%;'>"+Dkey+"</td>"+"<td style='width:60%;'>"+Dvalue+"</td></tr>"; 
+					tempstr=tempstr+str;
+				}						    	
+				var endstr="</tbody></table>";
+				html=headhtml+tempstr+endstr;
+				$("#msgright").html(html);							
+			}		    			  
+		});
+	});
+
 });

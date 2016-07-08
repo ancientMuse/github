@@ -26,23 +26,6 @@
 		<div class="timeloginhad" id="nowtime">时间</div>
 	</div>
 	
-	<div class="loading" id="loading">
-		<div>
-			<img src="res/img/loading.gif"/>
-		</div>
-	</div>
-	<div id="light" class="white_content">
-		<div class="title" id="title">
-			<span>消息提示</span>
-			<a href="javascript:" id="x">×</a>
-		</div>
-		<div class="content" id="content">
-			收到来之模块的指令！
-		</div>
-		<div class="but"><button id="change">响应指令</button>
-		</div>		
-	</div>
-	<div id="fade" class="black_overlay"></div>
 	<div class="bodycontent">
     <div class="primary">
       <div class="mainfrom">
@@ -55,7 +38,7 @@
               <option value="1">选择接收指令模块</option>
             </select>
           </div>
-          <div class="ts">接收指令模块</div>
+          <div class="ts">接受指令模块</div>
         </div>
         <div class="line">
           <div class="xuhao">
@@ -97,8 +80,53 @@
       </div>
     </div>
     <div class="secondary">
-    </div>  		
-	</div>
-	
+    </div>      
+  </div>
+
+  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:30%;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            消息提示
+          </h4>
+        </div>
+        <div class="modal-body" style="text-align:center">
+          <h4><strong>指令发送成功</strong></h4>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">
+            确定
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="top:30%;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            &times;
+          </button>
+          <h4 class="modal-title" id="myModalLabel">
+            消息提示
+          </h4>
+        </div>
+        <div class="modal-body" style="text-align:center">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="change" class="btn btn-primary" data-dismiss="modal">
+            响应指令
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+  </div>
+	<script src="res/script/bootstrap.js"></script>
 </body>
 </html>
