@@ -6,11 +6,18 @@
   <title>仿真任务选择</title>
   <link rel="stylesheet" href="res/css/bootstrap.css">
   <script src="res/script/time.js"></script>
+  <script>
+    var theDiv=document.getElementById('theDiv');
+    
+    var theBody=document.getElementById('theBody');
+    theDiv.style.height=theBody[0].style.height;
+    
+  </script>
   <style type="text/css">
     body,html{
       margin: 0;
       padding: 0; 
-      height: 100%;  
+       
     }
 
     body{
@@ -26,7 +33,7 @@
     }
 
     .wrap{
-      min-height:80%;
+     /* min-height:100%;*/
       background-color: rgba(255,255,255,1);
       width: 960px;
       margin: 100px auto 50px; 
@@ -67,7 +74,7 @@
     }
   </style>
 </head>
-<body>       
+<body id="theBody">       
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
       <a class="navbar-brand" href="Main.html">
@@ -105,7 +112,7 @@
       <p class="navbar-text navbar-right" id="currentMission" style="margin-right:15px;"></p>
     </div>     
   </nav> 
-  <div class="wrap">     
+  <div class="wrap" id="theDiv">     
     <!--内容区域-->
     <table class="table table-bordered table-hover">
         <thead>
